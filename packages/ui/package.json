@@ -1,0 +1,13 @@
+{
+  "name": "@resrvd/ui",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.7.18",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "react": "^16.7.0"
+  }
+}

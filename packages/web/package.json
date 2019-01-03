@@ -1,0 +1,20 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "next"
+  },
+  "devDependencies": {
+    "@types/react": "^16.7.18",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "@resrvd/ui": "*",
+    "@zeit/next-typescript": "^1.1.1",
+    "next": "^7.0.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
