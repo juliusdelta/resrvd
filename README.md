@@ -3,7 +3,7 @@
 ## Tech
 Monorepo:
 - Packages
-  - server - GraphQL Yoga, TypeORM & Postgres (not yet implemented)
+  - server - GraphQL Yoga, TypeORM & Postgres
   - ui - Component Library
   - web - Web application
   - app - React Native Application (not yet implemented)
