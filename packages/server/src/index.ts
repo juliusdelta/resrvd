@@ -1,40 +1,19 @@
 import "reflect-metadata";
 import { GraphQLServer } from "graphql-yoga";
 import { createConnection } from "typeorm";
-import { ResolverMap } from "./types/ResolverTypes";
-import { User } from "./entity/User";
+import { buildSchema } from 'type-graphql';
+import { RegisterResolver } from './modules/user/Register';
 
-const typeDefs = `
-  type User {
-    id: String!
-    firstName: String
-    lastName: String
-    email: String!
-  }
+const main = async () => {
+  const schema = await buildSchema({
+    resolvers: [RegisterResolver]
+  });
+  const server = new GraphQLServer({ schema });
 
-  type Query {
-    hello(name: String): String!
-    user(id: String!): User!
-    users: [User!]!
-  }
-
-  type Mutation {
-    createUser(firstName: String, lastName: String, email: String!): User!
-  }
-`;
-
-const resolvers: ResolverMap = {
-  Query: {
-    hello: (_, { name }) => `Hello ${name || "World"}`,
-    user: (_, { id }) => User.findOne({ id }),
-    users: () => User.find()
-  },
-  Mutation: {
-    createUser: (_, args) => User.create(args).save()
-  }
+  createConnection().then(() => {
+    server.start(() => console.log("Server is running on localhost:4000"));
+  }).catch(error => console.log(error));
 }
 
-const server = new GraphQLServer({ typeDefs, resolvers });
-createConnection().then(() => {
-  server.start(() => console.log("Server is running on localhost:4000"));
-}).catch(error => console.log(error));
+main();
+
