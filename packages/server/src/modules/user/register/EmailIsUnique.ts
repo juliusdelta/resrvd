@@ -6,8 +6,8 @@ import { Users } from "../../../entity/User";
 
 @ValidatorConstraint({ name: "EmailIsUnique", async: false })
 export class EmailIsUnique implements ValidatorConstraintInterface {
-  validate(email: string) {
-    const user = Users.findOne({ where: { email } });
+  async validate(email: string) {
+    const user = await Users.findOne({ where: { email } });
     if (user) return false;
     return true;
   }
