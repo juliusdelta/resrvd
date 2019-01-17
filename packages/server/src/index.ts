@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { GraphQLServer } from "graphql-yoga";
 import { createConnection } from "typeorm";
-import { buildSchema } from 'type-graphql';
+import { buildSchema, formatArgumentValidationError } from 'type-graphql';
 import { RegisterResolver } from './modules/user/Register';
 
 const main = async () => {
@@ -9,9 +9,12 @@ const main = async () => {
     resolvers: [RegisterResolver]
   });
   const server = new GraphQLServer({ schema });
+  const options = {
+    formatError: formatArgumentValidationError
+  }
 
   createConnection().then(() => {
-    server.start(() => console.log("Server is running on localhost:4000"));
+    server.start(options, () => console.log("Server is running on localhost:4000"));
   }).catch(error => console.log(error));
 }
 

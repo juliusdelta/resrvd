@@ -22,7 +22,7 @@
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": false
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "node_modules"
