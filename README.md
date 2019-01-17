@@ -9,6 +9,12 @@ Monorepo:
   - app - React Native Application (not yet implemented)
 
 ## Installation
+### Requirements
+- Node
+- Redis 
+  - Test by: `redis-cli ping` : should recieve `PONG`
+
+### Steps
 - Clone project
 ```sh
 $ cd resrvd
