@@ -15,7 +15,7 @@ const main = async () => {
   });
 
   const context = (req: any) => ({
-    req: req.request,
+    req: req.request
   });
 
   const server = new GraphQLServer({
@@ -47,17 +47,14 @@ const main = async () => {
     port: 4000,
     cors: {
       credentials: true,
-      origin: ['http://localhost:7777']
+      origin: ["http://localhost:7777"]
     },
     formatError: formatArgumentValidationError
   };
 
-  createConnection()
-    .then(() => {
-      server.start(options, () =>
-        console.log("Server is running on localhost:4000")
-      );
-    })
+  await createConnection();
+  server
+    .start(options, () => console.log("Server is running on localhost:4000"))
     .catch(error => console.log(error));
 };
 
