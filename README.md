@@ -1,6 +1,7 @@
 # Resrvd
 
 ## Tech
+
 Monorepo:
 - Packages
   - server - GraphQL Yoga, TypeORM & Postgres
