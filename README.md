@@ -26,6 +26,7 @@ $ yarn start
 <br>
 <br>
 
+There's plenty of todos. I will be accepting contributions soon.
 --------
 Copyright 2019 Jonathan Gonzales
 
